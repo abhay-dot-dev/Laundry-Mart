@@ -227,18 +227,21 @@
             <form action="#" class="form-details">
                 <h3>Book Now</h3>
 
+                <input type="hidden" name="services" id="services">
+                <input type="hidden" name="total" id="total">
+
                 <label for="name">Full Name</label>
                 <input type="text" name="name" id="name" placeholder="John Doe" required>
 
                 <div class="id-phone">
                     <div class="email">
                         <label for="Email">Email ID</label>
-                        <input type="email" name="Email" id="Email" placeholder="name@domain.com" required>
+                        <input type="email" name="email" id="email" placeholder="name@domain.com" required>
                     </div>
 
                     <div class="phone">
                         <label for="Phone">Phone Number</label>
-                        <input type="tel" name="Phone" id="Phone" placeholder="0000000000" required>
+                        <input type="tel" name="phone" id="phone" placeholder="0000000000" required>
                     </div>
                 </div>
 
@@ -250,7 +253,7 @@
                 </div>
                 <div class="right-popup right-popup-2" id="right-popup-2">
                     <ion-icon name="checkmark-circle-outline"></ion-icon>
-                    <p>Email has been sent successfully!</p>
+                    <p>Thank you For Booking the Service We will get back to you soon!</p>
                 </div>
             </form>
         </div>
@@ -329,7 +332,7 @@
 
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <script type="module" src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
-    <script src="./service.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="./script.js"></script>
 </body>
 

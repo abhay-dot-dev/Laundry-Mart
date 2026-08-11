@@ -1,3 +1,6 @@
+// EmailJS SETUP
+emailjs.init("szwEkenpc5qaYIaO1")
+
 // GLOBAL DOM VARIABLES
 
 const addBtns = document.querySelectorAll(".add-item");
@@ -5,6 +8,7 @@ const removeBtns = document.querySelectorAll(".remove-item");
 const cartList = document.getElementById("cart-list");
 const totalAmount = document.getElementById("total-amount");
 const bookNowBtn = document.getElementById("book-now-btn");
+const formDetails = document.querySelector(".form-details")
 const formDetailsInputs = document.querySelector(".form-details").querySelectorAll("input");
 
 // STATE
@@ -51,6 +55,7 @@ function updateTotal() {
     }
 
     totalAmount.innerHTML = `₹ ${calcTotal}`;
+    return calcTotal;
 }
 
 // enables/disables the Book Now button based on cart contents
@@ -133,5 +138,30 @@ for (let formInputs of formDetailsInputs) {
 // Book Now — show confirmation popup (button is disabled/unclickable when cart is empty)
 bookNowBtn.addEventListener("click", () => {
     const rightPopupTwo = document.getElementById("right-popup-2");
-    rightPopupTwo.classList.add("show");
+    
+    const name = formDetailsInputs[2].value.toLowerCase();
+    const email = formDetailsInputs[3].value.toLowerCase();
+    const phone = formDetailsInputs[4].value;
+
+    let services = "";
+    for(let item of cart){
+        services += `${item.name} - ${item.price}\n`
+    }
+
+    const total = updateTotal();
+
+    document.getElementById("services").value = services
+    document.getElementById("total").value = total
+
+    emailjs.sendForm(
+        "service_owheyop", 
+        "template_vgo352k", 
+        formDetails
+    )
+    .then(()=>{
+        rightPopupTwo.classList.add("show");
+    })
+    .catch((error)=>{
+        console.log(error);
+    })
 });
