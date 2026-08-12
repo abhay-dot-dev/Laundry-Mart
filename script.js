@@ -81,11 +81,12 @@ function hideWarningPopup() {
 for (let btn of addBtns) {
     btn.addEventListener('click', () => {
         const serviceItem = btn.parentElement.parentElement;
-
+        const serviceId = serviceItem.dataset.id;
         const serviceName = serviceItem.querySelector(".service-name").textContent;
         const servicePrice = serviceItem.querySelector(".service-price").textContent;
 
         cart.push({
+            id: serviceId,             // added serviceId for unique identification
             name: serviceName,
             price: servicePrice
         });
@@ -108,9 +109,9 @@ for (let btn of removeBtns) {
     btn.addEventListener('click', () => {
         const serviceItem = btn.parentElement.parentElement;
 
-        const serviceName = serviceItem.querySelector(".service-name").textContent;
+        const serviceId = serviceItem.dataset.id;
 
-        let index = cart.findIndex(item => item.name === serviceName);
+        let index = cart.findIndex(item => item.id === serviceId); // deleting by id
         cart.splice(index, 1);
 
         renderCart();
