@@ -10,6 +10,8 @@ const totalAmount = document.getElementById("total-amount");
 const bookNowBtn = document.getElementById("book-now-btn");
 const formDetails = document.querySelector(".form-details")
 const formDetailsInputs = document.querySelector(".form-details").querySelectorAll("input");
+const subscribeBtn = document.querySelector(".subscribe-btn");
+const newsletterSection = document.querySelector(".newsletter");
 
 // STATE
 const cart = []; // universal cart container
@@ -202,4 +204,33 @@ bookNowBtn.addEventListener("click", () => {
         .catch((error) => {
             console.log(error);
         })
+});
+
+
+subscribeBtn.addEventListener("click", () => {
+    const fName = document.getElementById("Full Name").value.trim();
+    const email = document.getElementById("Email").value.toLowerCase().trim();
+
+    if (fName === "" | email === "") {
+        alert("Please enter a valid name and email to subscribe.");
+        return;
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+        alert("Please enter a valid email address.");
+        return;
+    }
+
+    newsletterSection.innerHTML = `
+    <p class="subscribe-thanks">
+    <i class="ph ph-check"></i>
+    Thanks for subscribing! We'll keep you updated.
+    </p>
+    `;
+
+    const thanksMsg = document.querySelector(".subscribe-thanks");
+    requestAnimationFrame(() => {
+        thanksMsg.classList.add("show");
+    });
 });

@@ -661,6 +661,21 @@ NEWSLETTER SECTION
     cursor: pointer;
 }
 
+.subscribe-thanks {
+    font-weight: 500;
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 10px 16px;
+    border-radius: 8px;
+    display: inline-block;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.subscribe-thanks.show {
+    opacity: 1;
+}
+
 /* -------------------------------
 FOOTER SECTION
 ------------------------------- */
