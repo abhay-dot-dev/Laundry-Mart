@@ -147,7 +147,7 @@ bookNowBtn.addEventListener("click", () => {
     const phone = formDetailsInputs[4].value.trim();
 
     //Form validation
-    if (name === "" | email === "" | phone === "") {
+    if (name === "" || email === "" || phone === "") {
         alert("Please fill in all fields before booking.")
         return;
     }
@@ -211,7 +211,7 @@ subscribeBtn.addEventListener("click", () => {
     const fName = document.getElementById("Full Name").value.trim();
     const email = document.getElementById("Email").value.toLowerCase().trim();
 
-    if (fName === "" | email === "") {
+    if (fName === "" || email === "") {
         alert("Please enter a valid name and email to subscribe.");
         return;
     }
