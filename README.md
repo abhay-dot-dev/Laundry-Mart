@@ -38,6 +38,18 @@ ABHAY_TASK20/
 └── README.md
 ```
 
+## Testing / Verification
+
+### Email Confirmation
+* With the use of EmailJS, real-time mail both to the owner and the customer was verified.
+* One can visit the website, add items to the cart , fill in his/her details, and on clicking `Book Now` button, an actual mail will be sent to the customer in real-time.
+
+**Customer confirmation email:**
+![Customer email screenshot](./images/customer-email-test.png)
+
+**Owner notification email:**
+![Owner email screenshot](./images/owner-email-test.png)
+
 ## How to Run
 
 1. Download or clone the project.
