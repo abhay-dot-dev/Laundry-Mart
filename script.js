@@ -139,13 +139,33 @@ for (let formInputs of formDetailsInputs) {
 // Book Now — show confirmation popup (button is disabled/unclickable when cart is empty)
 bookNowBtn.addEventListener("click", () => {
     const rightPopupTwo = document.getElementById("right-popup-2");
-    
-    const name = formDetailsInputs[2].value.toLowerCase();
-    const email = formDetailsInputs[3].value.toLowerCase();
-    const phone = formDetailsInputs[4].value;
+
+    const name = formDetailsInputs[2].value.trim();
+    const email = formDetailsInputs[3].value.toLowerCase().trim();
+    const phone = formDetailsInputs[4].value.trim();
+
+    //Form validation
+    if (name === "" | email === "" | phone === "") {
+        alert("Please fill in all fields before booking.")
+        return;
+    }
+
+    // checking if this is a valid email or not.
+    // if not, trigger a alert message.
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {  
+        alert("Please enter a valid email address.");
+        return;
+    }
+
+    const phonePattern = /^[0-9]{10}$/;
+    if (!phonePattern.test(phone)) {
+        alert("Please enter a valid 10-digit phone number.");
+        return;
+    }
 
     let services = "";
-    for(let item of cart){
+    for (let item of cart) {
         services += `${item.name} - ${item.price}\n`
     }
 
@@ -155,14 +175,14 @@ bookNowBtn.addEventListener("click", () => {
     document.getElementById("total").value = total
 
     emailjs.sendForm(
-        "service_owheyop", 
-        "template_vgo352k", 
+        "service_owheyop",
+        "template_vgo352k",
         formDetails
     )
-    .then(()=>{
-        rightPopupTwo.classList.add("show");
-    })
-    .catch((error)=>{
-        console.log(error);
-    })
+        .then(() => {
+            rightPopupTwo.classList.add("show");
+        })
+        .catch((error) => {
+            console.log(error);
+        })
 });
