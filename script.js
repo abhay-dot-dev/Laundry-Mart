@@ -15,9 +15,18 @@ const newsletterSection = document.querySelector(".newsletter");
 
 // STATE
 const cart = []; // universal cart container
+let subscribers = []; // universal subscriber container
 
 // INITIAL PAGE STATE
-bookNowBtn.classList.add("disabled"); // disabled until an item is added
+
+// 1. disabled until an item is added
+bookNowBtn.classList.add("disabled"); 
+
+// 2. Checking if the localStorage has any info saved 
+// if saved, we will fetch it and store it into the subscribers array.
+// JSON.parse() will help in converting the long stirng back into array.
+if (localStorage.getItem("subscribers"))
+    subscribers = JSON.parse(localStorage.getItem("subscribers"))
 
 // FUNCTIONS
 
@@ -233,4 +242,15 @@ subscribeBtn.addEventListener("click", () => {
     requestAnimationFrame(() => {
         thanksMsg.classList.add("show");
     });
+
+    // Storing the list of every subscriber
+    subscribers.push({
+        subscriberName: fName,
+        subscriberEmail: email
+    });
+
+    // setting back all the subscribers back into the localStorage
+    // JSON.stringify - converts the entire 'subscribers' array into a single string
+    // We use this because localStorage can only store strings and not arrays.
+    localStorage.setItem("subscribers", JSON.stringify(subscribers));
 });
