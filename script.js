@@ -153,7 +153,7 @@ bookNowBtn.addEventListener("click", () => {
     // checking if this is a valid email or not.
     // if not, trigger a alert message.
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(email)) {  
+    if (!emailPattern.test(email)) {
         alert("Please enter a valid email address.");
         return;
     }
@@ -181,6 +181,23 @@ bookNowBtn.addEventListener("click", () => {
     )
         .then(() => {
             rightPopupTwo.classList.add("show");
+
+            // Resetting form inputs
+            formDetailsInputs[2].value = "";
+            formDetailsInputs[3].value = "";
+            formDetailsInputs[4].value = "";
+
+            // Resetting items in cart
+            cart.length = 0;
+            renderCart();
+            updateTotal();
+            updateBookBtnState();
+
+            // Resetting all the remove items btn to add item back again
+            for (let btn of addBtns)
+                btn.style.display = "flex";
+            for (let btn of removeBtns)
+                btn.style.display = "none";
         })
         .catch((error) => {
             console.log(error);
