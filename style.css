@@ -534,7 +534,7 @@ BOOKING SECTION
     background-color: #1D4ED8;
 }
 
-.bookNow-btn.disabled{
+.bookNow-btn.disabled {
     background-color: #DEE0FD;
     cursor: not-allowed;
     pointer-events: none;
@@ -754,4 +754,214 @@ footer {
     font-size: 1.3rem;
     font-width: 700;
     cursor: pointer;
+}
+
+/* RESPONSIVE - FOR TABLETS */
+@media (max-width: 768px) {
+    nav {
+        gap: 0.5rem;
+        padding: 1rem 1.5rem;
+    }
+
+    .nav-items {
+        flex-wrap: wrap;
+        gap: 0.8rem;
+    }
+
+    .hero {
+        flex-wrap: wrap;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        text-align: center;
+    }
+
+    .left {
+        padding-left: 0;
+        align-items: center;
+    }
+
+    .left h2 {
+        font-size: 2rem;
+    }
+
+    .left p {
+        max-width: 100%;
+    }
+
+    .service-btn {
+        justify-content: center;
+    }
+
+    .service-btn a {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .hero-img img {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+    }
+
+    .service-achievments {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+        padding: 2rem 1.5rem;
+        text-align: center;
+    }
+
+    .service-info {
+        flex-basis: 100%;
+    }
+
+    .service-info h2 {
+        font-size: 1.6rem;
+    }
+
+    .booking {
+        flex-direction: column;
+        padding: 2rem 1.5rem;
+    }
+
+    .service-item {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .add-item,
+    .remove-item {
+        padding: 0.5rem 1rem;
+    }
+
+    .id-phone {
+        flex-direction: column;
+    }
+
+    .service-quality {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 2rem 1.5rem;
+        gap: 2rem;
+    }
+
+    .feature-list p {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .newsletter {
+        flex-wrap: wrap;
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1.5rem;
+        gap: 2rem;
+    }
+
+    .newsletter h3 {
+        max-width: 100%;
+    }
+
+    .form-input {
+        flex-direction: column;
+    }
+
+    .subscribe-btn {
+        width: 100%;
+    }
+
+    footer {
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+        gap: 2rem;
+        padding: 3rem 1.5rem;
+    }
+
+    .company-info p {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .company-info,
+    .quick-links,
+    .contact-info {
+        align-items: center;
+    }
+}
+
+/* RESPONSIVE - MOBILE (small phones) */
+@media (max-width: 480px) {
+
+    /* NAV */
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .nav-items {
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+
+    .nav-items li a {
+        font-size: 0.9rem;
+    }
+
+    /* HERO */
+    .hero {
+        padding: 2rem;
+    }
+
+    .left h2 {
+        font-size: 1.6rem;
+    }
+
+    .service-btn a {
+        width: 100%;
+        max-width: none;
+    }
+
+    .service-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .add-item,
+    .remove-item {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .pdt-head,
+    .cart-row,
+    .pdt-total {
+        grid-template-columns: 40px 1fr 60px;
+        gap: 0.5rem;
+        padding: 0.6rem;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    company-info p {
+        font-size: 0.9rem;
+    }
+
+    .quick-links {
+        gap: 0.1rem;
+        font-size: 0.9rem;
+    }
+
+    .contact-info {
+        font-size: 0.9rem;
+    }
+
+    .social-links i {
+        font-size: 0.9rem;
+    }
 }
