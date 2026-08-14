@@ -1,10 +1,10 @@
-# Laundry Mart - Service Booking
+# Laundry Mart - Service Booking 🧺
 
 A simple laundry service booking website to practice JavaScript DOM manipulation, arrays, and event handling. Users can add or remove services from the cart, view the total, and book — with confirmation emails sent via EmailJS.
 
-[Laundry Mart - GitHub Repo](https://github.com/abhay-dot-dev/Laundry-Mart)
+🔗[Laundry Mart - GitHub Repo](https://github.com/abhay-dot-dev/Laundry-Mart)
 
-## What Learnt
+## What Learnt 📚
 
 * Understood how JavaScript can access and manipulate HTML elements dynamically using DOM methods like `getElementById()` and `querySelector()`. 
 * Learned how to use `addEventListener()` to perform actions when buttons and form inputs are clicked.
@@ -17,8 +17,19 @@ A simple laundry service booking website to practice JavaScript DOM manipulation
 * Learned how to use hidden input fields to pass dynamically generated data (like cart services and total) through a form.
 * Learned how to integrate `EmailJS` to send real-time emails using `emailjs.init("YOUR_PUBLIC_KEY")` and `emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, FORM_DETAILS)`.
 * Learned how to use EmailJS's `Auto-Reply` feature to send a second, separate confirmation email to the customer using the same form submission.
+* Couldn't add a custom mail feature for `newsletter` section as `EmailJS` provided limited templates in free tier.
 
-## Technologies Used
+## Bugs Fixed 🐞
+* Fixed a duplicate cart item bug - 
+    * Problem was , if any two cart items happen to have the same name, then we were not able to figure out which one gets deleted first as we used the logic of finding and matching the cart pdt using `serviceName` which eventually deleted the first occurance.
+    * Fixed that by adding a unique `data-id` to each service item.
+    * With this, we were able to delete exactly that particular item which was subjected to a click.
+* Implemented form validation using regex expression.
+* For checking multiple conditions, wrong operator was used `Bitwise OR (|)`. Fixed that with the proper `Logical OR (||)` operator.
+* Reset form and cart state after booking.
+* Added local storage data persistance for both the `cart` and `newsletter` section.
+
+## Technologies Used 🛠️
 
 * HTML
 * CSS
@@ -27,7 +38,7 @@ A simple laundry service booking website to practice JavaScript DOM manipulation
 * Phosphor Icons
 * Ionicons
 
-## Folder Structure
+## Folder Structure  📁 
 
 ```
 ABHAY_TASK20/
@@ -40,7 +51,7 @@ ABHAY_TASK20/
 └── README.md
 ```
 
-## Testing / Verification
+## Testing / Verification 🧪
 
 ### Email Confirmation
 * With the use of EmailJS, real-time mail both to the owner and the customer was verified.
@@ -52,7 +63,7 @@ ABHAY_TASK20/
 **Owner notification email:**
 ![Owner email screenshot](./images/owner-email-test.png)
 
-## How to Run
+## How to Run 🚀
 
 1. Download or clone the project.
 2. Open the project folder.
