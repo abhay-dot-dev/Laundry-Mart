@@ -20,13 +20,22 @@ let subscribers = []; // universal subscriber container
 // INITIAL PAGE STATE
 
 // 1. disabled until an item is added
-bookNowBtn.classList.add("disabled"); 
+bookNowBtn.classList.add("disabled");
 
 // 2. Checking if the localStorage has any info saved 
 // if saved, we will fetch it and store it into the subscribers array.
 // JSON.parse() will help in converting the long stirng back into array.
 if (localStorage.getItem("subscribers"))
     subscribers = JSON.parse(localStorage.getItem("subscribers"))
+
+// 3. Checking the local storage 
+// - If there happens to be any item, we will fetch them.
+// - Parse them back into an actual araray/object.
+// - loop over them , and push one item to the cart.
+if (localStorage.getItem("cart")) {
+    for (let item of JSON.parse(localStorage.getItem("cart")))
+        cart.push(item);
+}
 
 // FUNCTIONS
 
@@ -102,6 +111,8 @@ for (let btn of addBtns) {
             price: servicePrice
         });
 
+        localStorage.setItem("cart", JSON.stringify(cart)); // persisting cart items after adding
+
         renderCart();
         updateTotal();
         hideWarningPopup();
@@ -124,6 +135,9 @@ for (let btn of removeBtns) {
 
         let index = cart.findIndex(item => item.id === serviceId); // deleting by id
         cart.splice(index, 1);
+
+        // updating the localStorage  after removal
+        localStorage.setItem("cart", JSON.stringify(cart)); 
 
         renderCart();
         updateTotal();
@@ -200,6 +214,7 @@ bookNowBtn.addEventListener("click", () => {
 
             // Resetting items in cart
             cart.length = 0;
+            localStorage.removeItem("cart"); // Clearing the storage after the cart resets.
             renderCart();
             updateTotal();
             updateBookBtnState();
