@@ -2,6 +2,8 @@
 
 A simple laundry service booking website to practice JavaScript DOM manipulation, arrays, and event handling. Users can add or remove services from the cart, view the total, and book — with confirmation emails sent via EmailJS.
 
+[Laundry Mart - GitHub Repo](https://github.com/abhay-dot-dev/Laundry-Mart)
+
 ## What Learnt
 
 * Understood how JavaScript can access and manipulate HTML elements dynamically using DOM methods like `getElementById()` and `querySelector()`. 
